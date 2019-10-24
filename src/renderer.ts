@@ -1,4 +1,5 @@
 import { ipcRenderer, remote, shell } from 'electron';
+import * as os from 'os';
 
 ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
     const app_name = info.product_name || remote.app.getName();
@@ -17,8 +18,11 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
         logo_elem.classList.add('clickable');
     }
 
+    // hide if mas
     const copyright_elem = document.querySelector('.copyright') as any;
-    if (info.copyright) {
+    if (process.mas) {
+        // do nothing
+    } else if (info.copyright) {
         copyright_elem[content] = info.copyright;
     } else if (info.license) {
         copyright_elem[content] = `Distributed under ${info.license} license.`;
@@ -66,10 +70,36 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
         }
     }
 
+    // replace with custom versions
+    //if (info.use_version_info) {
+    //    const versions = document.querySelector('.versions');
+    //    const vs = process.versions;
+    //    for (const name of ['electron', 'chrome', 'node', 'v8']) {
+    //        const tr = document.createElement('tr');
+    //        const name_td = document.createElement('td');
+    //        name_td.innerText = name;
+    //        tr.appendChild(name_td);
+    //        const version_td = document.createElement('td');
+    //        version_td.innerText = ' : ' + vs[name];
+    //        tr.appendChild(version_td);
+    //        versions.appendChild(tr);
+    //    }
+    //}
     if (info.use_version_info) {
         const versions = document.querySelector('.versions');
-        const vs = process.versions;
-        for (const name of ['electron', 'chrome', 'node', 'v8']) {
+        // app version
+        // run env
+        // os version
+        // electron, chrome, node
+        const vs: { [key:string] : string } = {
+          'app-version': remote.app.getVersion(),
+          'runtime-env': process.mas? 'mas': 'default',
+          'os-version': `${os.platform()} ${os.release()}`,
+          'electron': process.versions.electron,
+          'chrome': process.versions.chrome,
+          'node': process.versions.node,
+        };
+        for (const name of ['app-version', 'runtime-env', 'os-version', 'electron', 'chrome', 'node']) {
             const tr = document.createElement('tr');
             const name_td = document.createElement('td');
             name_td.innerText = name;

@@ -1,6 +1,6 @@
 {
   "name": "about-window",
-  "version": "1.13.1",
+  "version": "1.14.0",
   "description": "'About App' window for Electron application",
   "main": "src/index.js",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rhysd/electron-about-window.git"
+    "url": "git+https://github.com/taku-o/electron-about-window.git"
   },
   "keywords": [
     "Electron",
@@ -25,12 +25,12 @@
     "about",
     "window"
   ],
-  "author": "rhysd <lin90162@yahoo.co.jp>",
+  "author": "taku-o <lin90162@yahoo.co.jp>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rhysd/electron-about-window/issues"
+    "url": "https://github.com/taku-o/electron-about-window/issues"
   },
-  "homepage": "https://github.com/rhysd/electron-about-window#readme",
+  "homepage": "https://github.com/taku-o/electron-about-window#readme",
   "devDependencies": {
     "@types/node": "^12.6.6",
     "electron": "^5.0.7",
