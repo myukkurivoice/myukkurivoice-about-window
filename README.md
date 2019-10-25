@@ -16,7 +16,7 @@
 - [x] CSS customizability
 
 ```sh
-$ npm install --save git+https://github.com/taku-o/electron-about-window#master
+$ npm install --save git+https://github.com/taku-o/myukkurivoice-about-window#master
 ```
 
 Only one function is exported as default.  Please see [TypeScript type definition](index.d.ts).
@@ -61,8 +61,8 @@ openAboutWindow('path/to/icon.png');
 You can check [an example app](example) to know how to use this package.
 
 ```sh
-$ git clone https://github.com/taku-o/about-window.git
-$ cd about-window/example
+$ git clone https://github.com/taku-o/myukkurivoice-about-window.git
+$ cd myukkurivoice-about-window/example
 $ npm install
 $ npm start
 
@@ -99,15 +99,15 @@ in order to avoid XSS. Be careful.
 
 ### Linux
 
-![Linux screenshot](https://raw.githubusercontent.com/taku-o/ss/master/about-window/about-window-linux.png)
+![Linux screenshot](https://raw.githubusercontent.com/taku-o/ss/master/myukkurivoice-about-window/about-window-linux.png)
 
 ### OS X
 
-![OS X screenshot](https://raw.githubusercontent.com/taku-o/ss/master/about-window/about-window-os-x.png)
+![OS X screenshot](https://raw.githubusercontent.com/taku-o/ss/master/myukkurivoice-about-window/about-window-os-x.png)
 
 ### Windows
 
-![Windows screenshot](https://raw.githubusercontent.com/taku-o/ss/master/about-window/about-window-windows.jpg)
+![Windows screenshot](https://raw.githubusercontent.com/taku-o/ss/master/myukkurivoice-about-window/about-window-windows.jpg)
 
 ## License
 
