@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const electron_1 = require("electron");
 const os = require("os");
+var semver = require('semver');
 electron_1.ipcRenderer.on('about-window:info', (_, info) => {
     const app_name = info.product_name || electron_1.remote.app.getName();
     const open_home = () => electron_1.shell.openExternal(info.homepage);
@@ -18,12 +19,13 @@ electron_1.ipcRenderer.on('about-window:info', (_, info) => {
     }
     const copyright_elem = document.querySelector('.copyright');
     if (process.mas) {
+        copyright_elem[content] = `use AqKanji2Koe (Mac)\nuse AquesTalk (iOS)\nuse AquesTalk2 (Mac)\nuse AquesTalk10 (Mac)`;
     }
-    else if (info.copyright) {
-        copyright_elem[content] = info.copyright;
+    else if (semver.gte(os.release(), '19.0.0')) {
+        copyright_elem[content] = `use AqKanji2Koe (Mac)\nuse AquesTalk (iOS)\nuse AquesTalk2 (Mac)\nuse AquesTalk10 (Mac)`;
     }
-    else if (info.license) {
-        copyright_elem[content] = `Distributed under ${info.license} license.`;
+    else {
+        copyright_elem[content] = `use AqKanji2Koe (Mac)\nuse AquesTalk (Mac)\nuse AquesTalk2 (Mac)\nuse AquesTalk10 (Mac)`;
     }
     const icon_elem = document.getElementById('app-icon');
     icon_elem.src = info.icon_path;

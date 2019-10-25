@@ -1,5 +1,6 @@
 import { ipcRenderer, remote, shell } from 'electron';
 import * as os from 'os';
+var semver = require('semver');
 
 ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
     const app_name = info.product_name || remote.app.getName();
@@ -18,14 +19,19 @@ ipcRenderer.on('about-window:info', (_: any, info: AboutWindowInfo) => {
         logo_elem.classList.add('clickable');
     }
 
-    // hide if mas
+    // replace with library.
     const copyright_elem = document.querySelector('.copyright') as any;
+    //if (info.copyright) {
+    //    copyright_elem[content] = info.copyright;
+    //} else if (info.license) {
+    //    copyright_elem[content] = `Distributed under ${info.license} license.`;
+    //}
     if (process.mas) {
-        // do nothing
-    } else if (info.copyright) {
-        copyright_elem[content] = info.copyright;
-    } else if (info.license) {
-        copyright_elem[content] = `Distributed under ${info.license} license.`;
+      copyright_elem[content] = `use AqKanji2Koe (Mac)\nuse AquesTalk (iOS)\nuse AquesTalk2 (Mac)\nuse AquesTalk10 (Mac)`;
+    } else if (semver.gte(os.release(), '19.0.0')) {
+      copyright_elem[content] = `use AqKanji2Koe (Mac)\nuse AquesTalk (iOS)\nuse AquesTalk2 (Mac)\nuse AquesTalk10 (Mac)`;
+    } else {
+      copyright_elem[content] = `use AqKanji2Koe (Mac)\nuse AquesTalk (Mac)\nuse AquesTalk2 (Mac)\nuse AquesTalk10 (Mac)`;
     }
 
     const icon_elem = document.getElementById('app-icon') as HTMLImageElement;
