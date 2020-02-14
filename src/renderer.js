@@ -19,13 +19,13 @@ electron_1.ipcRenderer.on('about-window:info', (_, info) => {
     }
     const copyright_elem = document.querySelector('.copyright');
     if (process.mas) {
-        copyright_elem[content] = `use AqKanji2Koe (Mac)\nuse AquesTalk (iOS)\nuse AquesTalk2 (Mac)\nuse AquesTalk10 (Mac)`;
+        copyright_elem[content] = `use AqKanji2Koe (Mac)\tuse AquesTalk (iOS)\nuse AquesTalk2 (Mac)\tuse AquesTalk10 (Mac)`;
     }
     else if (semver.gte(os.release(), '19.0.0')) {
-        copyright_elem[content] = `use AqKanji2Koe (Mac)\nuse AquesTalk (iOS)\nuse AquesTalk2 (Mac)\nuse AquesTalk10 (Mac)`;
+        copyright_elem[content] = `use AqKanji2Koe (Mac)\tuse AquesTalk (iOS)\nuse AquesTalk2 (Mac)\tuse AquesTalk10 (Mac)`;
     }
     else {
-        copyright_elem[content] = `use AqKanji2Koe (Mac)\nuse AquesTalk (Mac)\nuse AquesTalk2 (Mac)\nuse AquesTalk10 (Mac)`;
+        copyright_elem[content] = `use AqKanji2Koe (Mac)\tuse AquesTalk (Mac)\nuse AquesTalk2 (Mac)\tuse AquesTalk10 (Mac)`;
     }
     const icon_elem = document.getElementById('app-icon');
     icon_elem.src = info.icon_path;
@@ -64,16 +64,19 @@ electron_1.ipcRenderer.on('about-window:info', (_, info) => {
         }
     }
     if (info.use_version_info) {
+        const prjPackageJson = require('../../package.json');
         const versions = document.querySelector('.versions');
         const vs = {
-            'app-version': electron_1.remote.app.getVersion(),
-            'runtime-env': process.mas ? 'mas' : 'default',
             'os-version': `${os.platform()} ${os.release()}`,
             'electron': process.versions.electron,
-            'chrome': process.versions.chrome,
             'node': process.versions.node,
+            'app-version': electron_1.remote.app.getVersion(),
+            'platform': prjPackageJson.build_status.platform,
+            'runtime-mode': prjPackageJson.build_status.target,
+            'build-branch': prjPackageJson.build_status.branch,
+            'build-hash': prjPackageJson.build_status.hash.substr(0, 7),
         };
-        for (const name of ['app-version', 'runtime-env', 'os-version', 'electron', 'chrome', 'node']) {
+        for (const name of ['os-version', 'electron', 'node', 'app-version', 'platform', 'runtime-mode', 'build-branch', 'build-hash']) {
             const tr = document.createElement('tr');
             const name_td = document.createElement('td');
             name_td.innerText = name;
