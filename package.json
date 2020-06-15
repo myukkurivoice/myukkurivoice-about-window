@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/taku-o/myukkurivoice-about-window.git"
+    "url": "git+https://github.com/myukkurivoice/myukkurivoice-about-window.git"
   },
   "keywords": [
     "Electron",
@@ -28,9 +28,9 @@
   "author": "taku-o <mail@nanasi.jp> (https://nanasi.jp/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/taku-o/myukkurivoice-about-window/issues"
+    "url": "https://github.com/myukkurivoice/myukkurivoice-about-window/issues"
   },
-  "homepage": "https://github.com/taku-o/myukkurivoice-about-window#readme",
+  "homepage": "https://github.com/myukkurivoice/myukkurivoice-about-window#readme",
   "devDependencies": {
     "@types/node": "^12.6.6",
     "electron": "^5.0.7",
