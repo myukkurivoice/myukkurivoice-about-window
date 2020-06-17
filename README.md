@@ -99,15 +99,15 @@ in order to avoid XSS. Be careful.
 
 ### Linux
 
-![Linux screenshot](https://raw.githubusercontent.com/taku-o/ss/master/myukkurivoice-about-window/about-window-linux.png)
+![Linux screenshot](https://raw.githubusercontent.com/rhysd/ss/master/about-window/about-window-linux.png)
 
 ### OS X
 
-![OS X screenshot](https://raw.githubusercontent.com/taku-o/ss/master/myukkurivoice-about-window/about-window-os-x.png)
+![OS X screenshot](https://raw.githubusercontent.com/rhysd/ss/master/about-window/about-window-os-x.png)
 
 ### Windows
 
-![Windows screenshot](https://raw.githubusercontent.com/taku-o/ss/master/myukkurivoice-about-window/about-window-windows.jpg)
+![Windows screenshot](https://raw.githubusercontent.com/rhysd/ss/master/about-window/about-window-windows.jpg)
 
 ## License
 
